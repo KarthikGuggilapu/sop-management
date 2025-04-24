@@ -1,0 +1,59 @@
+export type Json =
+  | string
+  | number
+  | boolean
+  | null
+  | { [key: string]: Json | undefined }
+  | Json[]
+
+export interface Database {
+  public: {
+    Tables: {
+      team_members: {
+        Row: {
+          id: string
+          user_id: string | null
+          created_by: string
+          email: string
+          name: string | null
+          role: 'admin' | 'manager' | 'user'
+          status: 'active' | 'pending' | 'inactive'
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id?: string | null
+          created_by: string
+          email: string
+          name?: string | null
+          role?: 'admin' | 'manager' | 'user'
+          status?: 'active' | 'pending' | 'inactive'
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string | null
+          created_by?: string
+          email?: string
+          name?: string | null
+          role?: 'admin' | 'manager' | 'user'
+          status?: 'active' | 'pending' | 'inactive'
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      // ... other tables
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      [_ in never]: never
+    }
+    Enums: {
+      [_ in never]: never
+    }
+  }
+}
