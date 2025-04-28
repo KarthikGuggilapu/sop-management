@@ -16,6 +16,7 @@ export async function POST(request: Request) {
     }
 
     // Check if Resend is properly configured
+
     if (!resend) {
       console.error('Resend API key is not configured');
       return NextResponse.json(
@@ -23,6 +24,7 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
+    
 
     const { email, role: inviteRole } = await request.json();
 
